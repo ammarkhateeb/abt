@@ -1,718 +1,848 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mohammed Maaz & Aiman Iram — Nikah Ceremony</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --ink: #0a0a0a;
-    --pearl: #faf8f5;
-    --gold: #b8976a;
-    --gold-light: #d4b896;
-    --mauve: #7b5ea7;
-    --mauve-light: #a98dd4;
-    --mauve-pale: #f0eaf8;
-    --rule: #e0dbd4;
-    --caption: #7a7670;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Maaz & Aiman Iram — Wedding Invitation</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --peach: #FFDAB3;
+            --peach-light: #FFE8D6;
+            --blush: #F4C2C2;
+            --blush-deep: #E8A0A0;
+            --ivory: #FFFEF9;
+            --lavender: #E6E6FA;
+            --lavender-soft: #F0E6FA;
+            --gold: #D4A574;
+            --gold-shimmer: #E8C59A;
+            --rose-gold: #B76E79;
+            --text-dark: #4A3728;
+            --text-medium: #6B5344;
+            --text-light: #8B7355;
+            --white: #FFFFFF;
+            --shadow-soft: rgba(74, 55, 40, 0.08);
+            --shadow-medium: rgba(74, 55, 40, 0.12);
+        }
 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
-  html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, var(--ivory) 0%, var(--peach-light) 50%, var(--lavender-soft) 100%);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--pearl);
-    color: var(--ink);
-    font-size: 15px;
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
+        /* Floating Florals */
+        .floating-florals {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
 
-  /* ── TICKER BAR ── */
-  .ticker {
-    background: var(--ink);
-    color: var(--gold-light);
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    padding: 9px 0;
-    overflow: hidden;
-    white-space: nowrap;
-  }
-  .ticker-inner {
-    display: inline-block;
-    animation: ticker 28s linear infinite;
-  }
-  .ticker-inner span { margin: 0 3rem; }
-  @keyframes ticker {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
-  }
+        .petal {
+            position: absolute;
+            opacity: 0.6;
+            animation: floatPetal linear infinite;
+        }
 
-  /* ── NAV ── */
-  nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 18px 5vw;
-    border-bottom: 1px solid var(--rule);
-    background: var(--pearl);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    backdrop-filter: blur(8px);
-  }
-  .nav-monogram {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    color: var(--mauve);
-  }
-  .nav-monogram span { color: var(--gold); }
-  .nav-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-  }
-  .nav-links a {
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--caption);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--mauve); }
-  .nav-date {
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--caption);
-  }
+        .petal-1 { width: 30px; height: 30px; left: 5%; animation-duration: 20s; animation-delay: 0s; }
+        .petal-2 { width: 25px; height: 25px; left: 15%; animation-duration: 25s; animation-delay: 2s; }
+        .petal-3 { width: 35px; height: 35px; left: 25%; animation-duration: 22s; animation-delay: 4s; }
+        .petal-4 { width: 20px; height: 20px; left: 40%; animation-duration: 28s; animation-delay: 1s; }
+        .petal-5 { width: 28px; height: 28px; left: 55%; animation-duration: 24s; animation-delay: 3s; }
+        .petal-6 { width: 32px; height: 32px; left: 70%; animation-duration: 21s; animation-delay: 5s; }
+        .petal-7 { width: 22px; height: 22px; left: 85%; animation-duration: 26s; animation-delay: 2s; }
+        .petal-8 { width: 26px; height: 26px; left: 95%; animation-duration: 23s; animation-delay: 4s; }
 
-  /* ── HERO ── */
-  .hero {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 90vh;
-    border-bottom: 1px solid var(--rule);
-  }
-  .hero-left {
-    padding: 6vw 4vw 6vw 5vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border-right: 1px solid var(--rule);
-  }
-  .hero-eyebrow {
-    font-size: 10.5px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 2rem;
-  }
-  .hero-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(3rem, 5.5vw, 6.5rem);
-    font-weight: 300;
-    line-height: 1.05;
-    letter-spacing: -0.01em;
-    margin-bottom: 2rem;
-  }
-  .hero-title em {
-    font-style: italic;
-    color: var(--mauve);
-  }
-  .hero-divider {
-    width: 48px;
-    height: 1px;
-    background: var(--gold);
-    margin-bottom: 1.5rem;
-  }
-  .hero-tagline {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 1.1rem;
-    color: var(--caption);
-    max-width: 360px;
-    line-height: 1.7;
-    margin-bottom: 3rem;
-  }
-  .hero-date-block {
-    display: flex;
-    align-items: baseline;
-    gap: 1rem;
-  }
-  .hero-day {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 5rem;
-    font-weight: 300;
-    line-height: 1;
-    color: var(--mauve);
-  }
-  .hero-date-info { display: flex; flex-direction: column; }
-  .hero-month {
-    font-size: 10px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--gold);
-  }
-  .hero-year {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.6rem;
-    font-weight: 300;
-    color: var(--caption);
-  }
+        .petal svg { width: 100%; height: 100%; fill: var(--blush); }
+        .petal:nth-child(even) svg { fill: var(--peach); }
+        .petal:nth-child(3n) svg { fill: var(--lavender); }
 
-  .hero-right {
-    position: relative;
-    background: var(--mauve-pale);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 5vw 4vw;
-    overflow: hidden;
-  }
-  .hero-ornament {
-    position: absolute;
-    top: -60px; right: -60px;
-    width: 280px; height: 280px;
-    border-radius: 50%;
-    border: 1px solid var(--mauve-light);
-    opacity: 0.3;
-  }
-  .hero-ornament-2 {
-    position: absolute;
-    bottom: -80px; left: -80px;
-    width: 320px; height: 320px;
-    border-radius: 50%;
-    border: 1px solid var(--gold);
-    opacity: 0.2;
-  }
-  .bismillah-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 1rem;
-    letter-spacing: 0.06em;
-    color: var(--caption);
-    text-align: center;
-    margin-bottom: 3rem;
-    line-height: 1.9;
-    position: relative;
-    z-index: 1;
-  }
-  .monogram-large {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(5rem, 10vw, 10rem);
-    font-weight: 300;
-    line-height: 1;
-    letter-spacing: -0.04em;
-    position: relative;
-    z-index: 1;
-  }
-  .monogram-large .m { color: var(--mauve); }
-  .monogram-large .amp { font-size: 0.45em; color: var(--gold); vertical-align: middle; margin: 0 0.1em; }
-  .monogram-large .a { color: var(--ink); }
-  .hero-location {
-    position: relative;
-    z-index: 1;
-    margin-top: 2.5rem;
-    text-align: center;
-  }
-  .hero-location-label {
-    font-size: 9.5px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.4rem;
-  }
-  .hero-location-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem;
-    font-weight: 400;
-    color: var(--ink);
-  }
-  .hero-location-sub {
-    font-size: 12px;
-    color: var(--caption);
-    letter-spacing: 0.06em;
-    margin-top: 2px;
-  }
+        @keyframes floatPetal {
+            0% { transform: translateY(-100px) rotate(0deg) scale(1); opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { transform: translateY(100vh) rotate(360deg) scale(0.8); opacity: 0; }
+        }
 
-  /* ── SECTION UTILITY ── */
-  section { border-bottom: 1px solid var(--rule); }
-  .section-label {
-    font-size: 9.5px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--gold);
-    padding: 1.8rem 5vw 0;
-    display: block;
-  }
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+            padding: 2rem;
+            text-align: center;
+            background: radial-gradient(ellipse at center, rgba(255,255,255,0.8) 0%, transparent 70%);
+        }
 
-  /* ── FEATURE GRID (families) ── */
-  .families {
-    display: grid;
-    grid-template-columns: 1fr 80px 1fr;
-    padding: 4rem 5vw;
-    gap: 0;
-  }
-  .family-card { padding: 0 3vw; }
-  .family-card:first-child { padding-left: 0; border-right: 1px solid var(--rule); }
-  .family-card:last-child  { padding-right: 0; border-left: 1px solid var(--rule); }
-  .family-side-label {
-    font-size: 9.5px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--caption);
-    margin-bottom: 1.2rem;
-  }
-  .family-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.6rem, 2.5vw, 2.6rem);
-    font-weight: 400;
-    line-height: 1.15;
-    margin-bottom: 0.8rem;
-    font-style: italic;
-    color: var(--mauve);
-  }
-  .family-lineage {
-    font-size: 12.5px;
-    color: var(--caption);
-    line-height: 1.7;
-  }
-  .family-lineage strong { color: var(--ink); font-weight: 500; }
-  .family-divider {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .with-word {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 1.4rem;
-    color: var(--gold);
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    letter-spacing: 0.1em;
-  }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(244, 194, 194, 0.3) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(230, 230, 250, 0.3) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(255, 218, 179, 0.2) 0%, transparent 50%);
+            z-index: -1;
+        }
 
-  /* ── SCHEDULE ── */
-  .schedule {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-  .schedule-item {
-    padding: 3.5rem 5vw;
-    display: flex;
-    gap: 2rem;
-    align-items: flex-start;
-  }
-  .schedule-item:first-child { border-right: 1px solid var(--rule); }
-  .schedule-time-block { flex-shrink: 0; }
-  .schedule-time {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.8rem;
-    font-weight: 300;
-    line-height: 1;
-    color: var(--mauve);
-  }
-  .schedule-ampm {
-    font-size: 10px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-top: 3px;
-  }
-  .schedule-detail { flex: 1; padding-top: 0.3rem; }
-  .schedule-event-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem;
-    font-weight: 400;
-    font-style: italic;
-    margin-bottom: 0.5rem;
-  }
-  .schedule-venue {
-    font-size: 12px;
-    color: var(--caption);
-    line-height: 1.6;
-  }
-  .schedule-venue strong { color: var(--mauve); font-weight: 500; }
+        .floral-frame {
+            position: relative;
+            padding: 3rem;
+            max-width: 800px;
+        }
 
-  /* ── DETAILS STRIP ── */
-  .details-strip {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    background: var(--ink);
-    color: var(--pearl);
-  }
-  .detail-cell {
-    padding: 3rem 2.5vw;
-    border-right: 1px solid rgba(255,255,255,0.08);
-  }
-  .detail-cell:last-child { border-right: none; }
-  .detail-label {
-    font-size: 9.5px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.8rem;
-  }
-  .detail-value {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem;
-    font-weight: 300;
-    line-height: 1.4;
-  }
-  .detail-sub {
-    font-size: 11px;
-    color: rgba(255,255,255,0.4);
-    margin-top: 0.3rem;
-    letter-spacing: 0.04em;
-  }
+        .corner-floral {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            opacity: 0.8;
+        }
 
-  /* ── BLESSING ── */
-  .blessing {
-    padding: 6rem 5vw;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-  }
-  .blessing-quote {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: clamp(1.5rem, 2.2vw, 2.2rem);
-    font-weight: 300;
-    line-height: 1.5;
-    color: var(--ink);
-  }
-  .blessing-quote::before {
-    content: '\201C';
-    font-size: 5rem;
-    line-height: 0;
-    vertical-align: -1.8rem;
-    margin-right: 0.2rem;
-    color: var(--gold);
-    opacity: 0.6;
-  }
-  .blessing-side {}
-  .blessing-dua {
-    font-size: 12.5px;
-    color: var(--caption);
-    line-height: 1.9;
-    border-left: 2px solid var(--mauve-light);
-    padding-left: 1.5rem;
-    margin-bottom: 1.5rem;
-    font-style: italic;
-  }
-  .blessing-compliments {
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--caption);
-  }
-  .blessing-compliments strong { color: var(--ink); }
+        .corner-floral.top-left { top: -20px; left: -20px; transform: rotate(0deg); }
+        .corner-floral.top-right { top: -20px; right: -20px; transform: rotate(90deg); }
+        .corner-floral.bottom-left { bottom: -20px; left: -20px; transform: rotate(-90deg); }
+        .corner-floral.bottom-right { bottom: -20px; right: -20px; transform: rotate(180deg); }
+        .corner-floral svg { width: 100%; height: 100%; }
 
-  /* ── FOOTER ── */
-  footer {
-    background: var(--ink);
-    color: rgba(255,255,255,0.5);
-    padding: 2.5rem 5vw;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 11px;
-    letter-spacing: 0.08em;
-  }
-  footer .footer-mono {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem;
-    color: rgba(255,255,255,0.15);
-    font-style: italic;
-  }
-  footer a {
-    color: var(--gold-light);
-    text-decoration: none;
-  }
+        .pre-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--text-light);
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
 
-  /* ── PRESS ── */
-  .press-bar {
-    display: flex;
-    align-items: center;
-    gap: 0;
-    border-top: 1px solid var(--rule);
-  }
-  .press-label {
-    padding: 1rem 2vw;
-    font-size: 9.5px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    border-right: 1px solid var(--rule);
-    flex-shrink: 0;
-  }
-  .press-items {
-    display: flex;
-    gap: 0;
-    flex: 1;
-    overflow: hidden;
-  }
-  .press-item {
-    padding: 1rem 2.5vw;
-    font-size: 11px;
-    color: var(--caption);
-    border-right: 1px solid var(--rule);
-    letter-spacing: 0.04em;
-    white-space: nowrap;
-  }
-  .press-item:last-child { border-right: none; }
+        .couple-names {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 600;
+            color: var(--text-dark);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
 
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  .hero-left > * { animation: fadeUp 0.8s ease forwards; }
-  .hero-left > *:nth-child(1) { animation-delay: 0.1s; }
-  .hero-left > *:nth-child(2) { animation-delay: 0.22s; }
-  .hero-left > *:nth-child(3) { animation-delay: 0.34s; }
-  .hero-left > *:nth-child(4) { animation-delay: 0.46s; }
-  .hero-left > *:nth-child(5) { animation-delay: 0.58s; }
+        .heart-icon {
+            display: inline-block;
+            color: var(--rose-gold);
+            animation: heartbeat 1.5s ease-in-out infinite;
+            margin: 0 0.3em;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+        }
 
-  /* ── RESPONSIVE ── */
-  @media (max-width: 768px) {
-    nav { padding: 14px 4vw; }
-    .nav-links { display: none; }
-    .hero { grid-template-columns: 1fr; min-height: auto; }
-    .hero-left { padding: 8vw 5vw; border-right: none; border-bottom: 1px solid var(--rule); }
-    .hero-right { min-height: 60vw; padding: 8vw 5vw; }
-    .families { grid-template-columns: 1fr; }
-    .family-card:first-child { padding-left: 0; border-right: none; border-bottom: 1px solid var(--rule); padding-bottom: 2rem; }
-    .family-card:last-child  { padding-right: 0; border-left: none; padding-top: 2rem; }
-    .family-divider { padding: 1.5rem 0; writing-mode: horizontal-tb; }
-    .with-word { writing-mode: horizontal-tb; }
-    .schedule { grid-template-columns: 1fr; }
-    .schedule-item:first-child { border-right: none; border-bottom: 1px solid var(--rule); }
-    .details-strip { grid-template-columns: 1fr 1fr; }
-    .detail-cell:nth-child(2) { border-right: none; }
-    .detail-cell:nth-child(3) { border-top: 1px solid rgba(255,255,255,0.08); }
-    .blessing { grid-template-columns: 1fr; gap: 2.5rem; }
-    footer { flex-direction: column; gap: 1rem; text-align: center; }
-    .press-items { overflow-x: auto; }
-  }
-</style>
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+
+        .tagline {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            font-style: italic;
+            color: var(--text-medium);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            animation: fadeInUp 1s ease-out 0.7s both;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2.5rem;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--white);
+            background: linear-gradient(135deg, var(--rose-gold) 0%, var(--gold) 100%);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(183, 110, 121, 0.3);
+            transition: all 0.4s ease;
+            animation: fadeInUp 1s ease-out 0.9s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(183, 110, 121, 0.4);
+        }
+
+        .cta-button svg {
+            width: 18px; height: 18px;
+            transition: transform 0.3s ease;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+        }
+
+        .cta-button:hover svg { transform: translateY(3px); }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator svg {
+            width: 30px; height: 30px;
+            stroke: var(--gold);
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Sections */
+        section { position: relative; z-index: 2; padding: 5rem 1.5rem; }
+
+        .section-container { max-width: 1000px; margin: 0 auto; }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 600;
+            text-align: center;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out 0.2s;
+        }
+
+        .section-title.visible, .section-divider.visible { opacity: 1; transform: translateY(0); }
+
+        .divider-line {
+            width: 60px; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .divider-icon svg { width: 24px; height: 24px; fill: var(--gold); }
+
+        /* Invitation */
+        .invitation {
+            background: linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.5) 50%, transparent 100%);
+        }
+
+        .invitation-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 3rem 2rem;
+            box-shadow: 0 20px 60px var(--shadow-soft);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease-out;
+        }
+
+        .invitation-card.visible { opacity: 1; transform: translateY(0); }
+
+        .bismillah {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .invitation-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+            font-style: italic;
+            color: var(--text-medium);
+            line-height: 1.9;
+        }
+
+        .invitation-text p { margin-bottom: 1.2rem; }
+
+        .invitation-text .highlight {
+            color: var(--rose-gold);
+            font-weight: 600;
+            font-size: 1.1em;
+            display: block;
+            margin: 1.5rem 0;
+        }
+
+        /* Events */
+        .events { padding-top: 4rem; }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .event-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            box-shadow: 0 15px 40px var(--shadow-soft);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            transition: all 0.6s ease-out;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .event-card.visible { opacity: 1; transform: translateY(0); }
+
+        .event-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px var(--shadow-medium);
+        }
+
+        .event-icon {
+            width: 70px; height: 70px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--peach-light) 0%, var(--lavender-soft) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 20px var(--shadow-soft);
+        }
+
+        .event-icon svg {
+            width: 32px; height: 32px;
+            fill: none;
+            stroke: var(--rose-gold);
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .event-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .event-date {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--rose-gold);
+            margin-bottom: 0.8rem;
+        }
+
+        .event-venue {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.95rem;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .event-venue svg {
+            width: 16px; height: 16px;
+            fill: none;
+            stroke: var(--gold);
+            stroke-width: 2;
+        }
+
+        .event-time {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-medium);
+        }
+
+        /* Venue */
+        .venue { padding: 6rem 1.5rem; }
+
+        .venue-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,232,214,0.7) 100%);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 30px 80px var(--shadow-medium);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            max-width: 900px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: scale(0.95);
+            transition: all 0.8s ease-out;
+        }
+
+        .venue-card.visible { opacity: 1; transform: scale(1); }
+
+        .venue-image {
+            width: 100%; height: 300px;
+            background: linear-gradient(135deg, var(--peach) 0%, var(--lavender) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .venue-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 30% 70%, rgba(255,255,255,0.3) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(244, 194, 194, 0.4) 0%, transparent 50%);
+        }
+
+        .venue-placeholder {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-medium);
+        }
+
+        .venue-placeholder svg {
+            width: 60px; height: 60px;
+            fill: none;
+            stroke: var(--rose-gold);
+            stroke-width: 1.5;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .venue-placeholder span {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+        }
+
+        .venue-content { padding: 2.5rem; text-align: center; }
+
+        .venue-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .venue-location {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1rem;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .venue-location svg {
+            width: 18px; height: 18px;
+            fill: none;
+            stroke: var(--gold);
+            stroke-width: 2;
+        }
+
+        .map-button {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--rose-gold);
+            background: transparent;
+            border: 2px solid var(--rose-gold);
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .map-button:hover { background: var(--rose-gold); color: var(--white); }
+
+        /* Closing */
+        .closing {
+            text-align: center;
+            padding: 6rem 1.5rem 4rem;
+            position: relative;
+        }
+
+        .closing::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px; height: 100px;
+            background: radial-gradient(ellipse at center, var(--peach-light) 0%, transparent 70%);
+            opacity: 0.6;
+        }
+
+        .closing-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            font-style: italic;
+            color: var(--text-medium);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.8;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease-out;
+        }
+
+        .closing-text.visible { opacity: 1; transform: translateY(0); }
+
+        .final-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1.2rem 3rem;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--white);
+            background: linear-gradient(135deg, var(--gold) 0%, var(--rose-gold) 100%);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 15px 40px rgba(212, 165, 116, 0.35);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .final-cta.visible { opacity: 1; transform: translateY(0); }
+
+        .final-cta:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 50px rgba(212, 165, 116, 0.45);
+        }
+
+        .final-cta svg {
+            width: 20px; height: 20px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+        }
+
+        /* Footer */
+        footer {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 2rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1rem;
+            color: var(--text-light);
+            border-top: 1px solid rgba(212,165,116,0.2);
+        }
+    </style>
 </head>
 <body>
 
-<!-- TICKER -->
-<div class="ticker">
-  <div class="ticker-inner">
-    <span>Nikah Ceremony</span>
-    <span>·</span>
-    <span>Mohammed Maaz &amp; Aiman Iram</span>
-    <span>·</span>
-    <span>Sunday, 10 May 2026</span>
-    <span>·</span>
-    <span>Masjid-e-Khadeem, Vaniyambadi</span>
-    <span>·</span>
-    <span>12:00 PM Onwards</span>
-    <span>·</span>
-    <span>22nd Zilqaida 1447 Hijri</span>
-    <span>·</span>
-    <span>Nikah Ceremony</span>
-    <span>·</span>
-    <span>Mohammed Maaz &amp; Aiman Iram</span>
-    <span>·</span>
-    <span>Sunday, 10 May 2026</span>
-    <span>·</span>
-    <span>Masjid-e-Khadeem, Vaniyambadi</span>
-    <span>·</span>
-    <span>12:00 PM Onwards</span>
-    <span>·</span>
-    <span>22nd Zilqaida 1447 Hijri</span>
-    <span>·</span>
-  </div>
-</div>
-
-<!-- NAV -->
-<nav>
-  <div class="nav-monogram">M<span>&amp;</span>A</div>
-  <ul class="nav-links">
-    <li><a href="#ceremony">Ceremony</a></li>
-    <li><a href="#families">Families</a></li>
-    <li><a href="#schedule">Schedule</a></li>
-    <li><a href="#venue">Venue</a></li>
-  </ul>
-  <div class="nav-date">10 May 2026</div>
-</nav>
-
-<!-- HERO -->
-<section class="hero" id="ceremony">
-  <div class="hero-left">
-    <p class="hero-eyebrow">Nikah Invitation — 1447 Hijri</p>
-    <h1 class="hero-title">
-      Mohammed<br>
-      <em>Maaz</em><br>
-      &amp; Aiman<br>
-      <em>Iram</em>
-    </h1>
-    <div class="hero-divider"></div>
-    <p class="hero-tagline">
-      In the name of Allah, the most Beneficent,<br>the most Merciful
-    </p>
-    <div class="hero-date-block">
-      <div class="hero-day">10</div>
-      <div class="hero-date-info">
-        <span class="hero-month">May 2026</span>
-        <span class="hero-year">Sunday</span>
-      </div>
-    </div>
-  </div>
-  <div class="hero-right">
-    <div class="hero-ornament"></div>
-    <div class="hero-ornament-2"></div>
-    <p class="bismillah-text">
-      In the name of Allah,<br>
-      the most Beneficent,<br>
-      the most Merciful
-    </p>
-    <div class="monogram-large">
-      <span class="m">M</span><span class="amp">&amp;</span><span class="a">A</span>
-    </div>
-    <div class="hero-location">
-      <div class="hero-location-label">Venue</div>
-      <div class="hero-location-name">Masjid-e-Khadeem</div>
-      <div class="hero-location-sub">Jaffarabad, Vaniyambadi</div>
-    </div>
-  </div>
-</section>
-
-<!-- FAMILIES -->
-<section id="families">
-  <span class="section-label">The Families</span>
-  <div class="families">
-    <!-- Groom -->
-    <div class="family-card">
-      <div class="family-side-label">Groom</div>
-      <div class="family-name">J. Mohammed Maaz</div>
-      <div class="family-lineage">
-        Son of <strong>Hafiz M. Ilyas Ahmed</strong><br>
-        Paternal Grand S/o. <strong>Late Janab Mohammed Moosa Sahib</strong><br>
-        Maternal Grand S/o. <strong>Janab Mahmood Shareef Sahib</strong>
-      </div>
-    </div>
-    <!-- Divider -->
-    <div class="family-divider">
-      <span class="with-word">with</span>
-    </div>
-    <!-- Bride -->
-    <div class="family-card">
-      <div class="family-side-label">Bride</div>
-      <div class="family-name">T. Aiman Iram</div>
-      <div class="family-lineage">
-        Daughter of <strong>Janab T. Mukhtar Ahmed Sahib</strong>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SCHEDULE -->
-<section id="schedule">
-  <span class="section-label">Order of the Day</span>
-  <div class="schedule">
-    <div class="schedule-item">
-      <div class="schedule-time-block">
-        <div class="schedule-time">12:00</div>
-        <div class="schedule-ampm">PM onwards</div>
-      </div>
-      <div class="schedule-detail">
-        <div class="schedule-event-name">Nikah Ceremony</div>
-        <div class="schedule-venue">
-          <strong>Masjid-e-Khadeem</strong><br>
-          Jaffarabad, Vaniyambadi<br>
-          22nd Zilqaida 1447 Hijri
+    <!-- Floating Florals -->
+    <div class="floating-florals">
+        <div class="petal petal-1">
+            <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="25" cy="15" rx="8" ry="14" transform="rotate(0 25 25)"/>
+                <ellipse cx="25" cy="15" rx="8" ry="14" transform="rotate(72 25 25)"/>
+                <ellipse cx="25" cy="15" rx="8" ry="14" transform="rotate(144 25 25)"/>
+                <ellipse cx="25" cy="15" rx="8" ry="14" transform="rotate(216 25 25)"/>
+                <ellipse cx="25" cy="15" rx="8" ry="14" transform="rotate(288 25 25)"/>
+            </svg>
         </div>
-      </div>
-    </div>
-    <div class="schedule-item">
-      <div class="schedule-time-block">
-        <div class="schedule-time">Post</div>
-        <div class="schedule-ampm">After Nikah</div>
-      </div>
-      <div class="schedule-detail">
-        <div class="schedule-event-name">Walima Lunch</div>
-        <div class="schedule-venue">
-          <strong>V. K. Mahal</strong><br>
-          Jaffarabad, Vaniyambadi<br>
-          Lunch will be served following Nikah
+        <div class="petal petal-2">
+            <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="25" cy="15" rx="8" ry="14" transform="rotate(0 25 25)"/>
+                <ellipse cx="25" cy="15" rx="8" ry="14" transform="rotate(60 25 25)"/>
+                <ellipse cx="25" cy="15" rx="8" ry="14" transform="rotate(120 25 25)"/>
+                <ellipse cx="25" cy="15" rx="8" ry="14" transform="rotate(180 25 25)"/>
+                <ellipse cx="25" cy="15" rx="8" ry="14" transform="rotate(240 25 25)"/>
+                <ellipse cx="25" cy="15" rx="8" ry="14" transform="rotate(300 25 25)"/>
+            </svg>
         </div>
-      </div>
+        <div class="petal petal-3"><svg viewBox="0 0 50 50"><ellipse cx="25" cy="15" rx="8" ry="14" transform="rotate(0 25 25)"/><ellipse cx="25" cy="15" rx="8" ry="14" transform="rotate(72 25 25)"/><ellipse cx="25" cy="15" rx="8" ry="14" transform="rotate(144 25 25)"/><ellipse cx="25" cy="15" rx="8" ry="14" transform="rotate(216 25 25)"/><ellipse cx="25" cy="15" rx="8" ry="14" transform="rotate(288 25 25)"/></svg></div>
+        <div class="petal petal-4"><svg viewBox="0 0 50 50"><ellipse cx="25" cy="15" rx="8" ry="14" transform="rotate(0 25 25)"/><ellipse cx="25" cy="15" rx="8" ry="14" transform="rotate(90 25 25)"/><ellipse cx="25" cy="15" rx="8" ry="14" transform="rotate(180 25 25)"/><ellipse cx="25" cy="15" rx="8" ry="14" transform="rotate(270 25 25)"/></svg></div>
+        <div class="petal petal-5"><svg viewBox="0 0 50 50"><ellipse cx="25" cy="15" rx="8" ry="14" transform="rotate(0 25 25)"/><ellipse cx="25" cy="15" rx="8" ry="14" transform="rotate(72 25 25)"/><ellipse cx="25" cy="15" rx="8" ry="14" transform="rotate(144 25 25)"/><ellipse cx="25" cy="15" rx="8" ry="14" transform="rotate(216 25 25)"/><ellipse cx="25" cy="15" rx="8" ry="14" transform="rotate(288 25 25)"/></svg></div>
+        <div class="petal petal-6"><svg viewBox="0 0 50 50"><ellipse cx="25" cy="15" rx="8" ry="14" transform="rotate(0 25 25)"/><ellipse cx="25" cy="15" rx="8" ry="14" transform="rotate(60 25 25)"/><ellipse cx="25" cy="15" rx="8" ry="14" transform="rotate(120 25 25)"/><ellipse cx="25" cy="15" rx="8" ry="14" transform="rotate(180 25 25)"/><ellipse cx="25" cy="15" rx="8" ry="14" transform="rotate(240 25 25)"/><ellipse cx="25" cy="15" rx="8" ry="14" transform="rotate(300 25 25)"/></svg></div>
+        <div class="petal petal-7"><svg viewBox="0 0 50 50"><ellipse cx="25" cy="15" rx="8" ry="14" transform="rotate(0 25 25)"/><ellipse cx="25" cy="15" rx="8" ry="14" transform="rotate(72 25 25)"/><ellipse cx="25" cy="15" rx="8" ry="14" transform="rotate(144 25 25)"/><ellipse cx="25" cy="15" rx="8" ry="14" transform="rotate(216 25 25)"/><ellipse cx="25" cy="15" rx="8" ry="14" transform="rotate(288 25 25)"/></svg></div>
+        <div class="petal petal-8"><svg viewBox="0 0 50 50"><ellipse cx="25" cy="15" rx="8" ry="14" transform="rotate(0 25 25)"/><ellipse cx="25" cy="15" rx="8" ry="14" transform="rotate(90 25 25)"/><ellipse cx="25" cy="15" rx="8" ry="14" transform="rotate(180 25 25)"/><ellipse cx="25" cy="15" rx="8" ry="14" transform="rotate(270 25 25)"/></svg></div>
     </div>
-  </div>
-</section>
 
-<!-- DETAILS STRIP -->
-<div class="details-strip" id="venue">
-  <div class="detail-cell">
-    <div class="detail-label">Date</div>
-    <div class="detail-value">Sunday<br>10 May 2026</div>
-    <div class="detail-sub">22nd Zilqaida 1447 Hijri</div>
-  </div>
-  <div class="detail-cell">
-    <div class="detail-label">Nikah Time</div>
-    <div class="detail-value">12:00 PM<br>to 3:00 PM</div>
-    <div class="detail-sub">Insha Allah</div>
-  </div>
-  <div class="detail-cell">
-    <div class="detail-label">Nikah Venue</div>
-    <div class="detail-value">Masjid-e-Khadeem</div>
-    <div class="detail-sub">Jaffarabad, Vaniyambadi</div>
-  </div>
-  <div class="detail-cell">
-    <div class="detail-label">Lunch Venue</div>
-    <div class="detail-value">V. K. Mahal</div>
-    <div class="detail-sub">Jaffarabad, Vaniyambadi</div>
-  </div>
-</div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="floral-frame">
 
-<!-- BLESSING -->
-<section class="blessing">
-  <div class="blessing-quote">
-    May Allah bless you, and may He unite both of you in goodness.
-  </div>
-  <div class="blessing-side">
-    <p class="blessing-dua">
-      Hafiz M. Ilyas Ahmed solicits your gracious presence on the occasion of the marriage of his son J. Mohammed Maaz with T. Aiman Iram. Your blessings and prayers are most humbly requested.
-    </p>
-    <p class="blessing-compliments">
-      With the best compliments from<br>
-      <strong>Relatives &amp; Friends</strong>
-    </p>
-  </div>
-</section>
+            <!-- Corner Florals -->
+            <div class="corner-floral top-left">
+                <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="none" stroke="var(--rose-gold)" stroke-width="1" opacity="0.7">
+                        <path d="M10,10 Q30,5 40,20 Q50,35 35,45 Q20,55 10,40 Q0,25 10,10Z" fill="var(--blush)" opacity="0.5"/>
+                        <path d="M25,5 Q45,0 55,15 Q65,30 50,40 Q35,50 25,35 Q15,20 25,5Z" fill="var(--peach)" opacity="0.4"/>
+                        <path d="M5,25 Q15,10 30,15 Q45,20 45,35 Q45,50 30,50 Q15,50 5,40 Q-5,30 5,25Z" fill="var(--lavender)" opacity="0.4"/>
+                        <line x1="40" y1="40" x2="70" y2="70" stroke="var(--gold)" stroke-width="0.8"/>
+                        <line x1="50" y1="30" x2="80" y2="60" stroke="var(--gold)" stroke-width="0.8"/>
+                        <circle cx="42" cy="42" r="2" fill="var(--gold)" opacity="0.6"/>
+                        <circle cx="55" cy="55" r="1.5" fill="var(--gold)" opacity="0.5"/>
+                    </g>
+                </svg>
+            </div>
+            <div class="corner-floral top-right">
+                <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="none" stroke="var(--rose-gold)" stroke-width="1" opacity="0.7">
+                        <path d="M10,10 Q30,5 40,20 Q50,35 35,45 Q20,55 10,40 Q0,25 10,10Z" fill="var(--blush)" opacity="0.5"/>
+                        <path d="M25,5 Q45,0 55,15 Q65,30 50,40 Q35,50 25,35 Q15,20 25,5Z" fill="var(--peach)" opacity="0.4"/>
+                        <path d="M5,25 Q15,10 30,15 Q45,20 45,35 Q45,50 30,50 Q15,50 5,40 Q-5,30 5,25Z" fill="var(--lavender)" opacity="0.4"/>
+                        <line x1="40" y1="40" x2="70" y2="70" stroke="var(--gold)" stroke-width="0.8"/>
+                        <circle cx="42" cy="42" r="2" fill="var(--gold)" opacity="0.6"/>
+                    </g>
+                </svg>
+            </div>
+            <div class="corner-floral bottom-left">
+                <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="none" stroke="var(--rose-gold)" stroke-width="1" opacity="0.7">
+                        <path d="M10,10 Q30,5 40,20 Q50,35 35,45 Q20,55 10,40 Q0,25 10,10Z" fill="var(--blush)" opacity="0.5"/>
+                        <path d="M25,5 Q45,0 55,15 Q65,30 50,40 Q35,50 25,35 Q15,20 25,5Z" fill="var(--peach)" opacity="0.4"/>
+                        <path d="M5,25 Q15,10 30,15 Q45,20 45,35 Q45,50 30,50 Q15,50 5,40 Q-5,30 5,25Z" fill="var(--lavender)" opacity="0.4"/>
+                        <line x1="40" y1="40" x2="70" y2="70" stroke="var(--gold)" stroke-width="0.8"/>
+                        <circle cx="42" cy="42" r="2" fill="var(--gold)" opacity="0.6"/>
+                    </g>
+                </svg>
+            </div>
+            <div class="corner-floral bottom-right">
+                <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="none" stroke="var(--rose-gold)" stroke-width="1" opacity="0.7">
+                        <path d="M10,10 Q30,5 40,20 Q50,35 35,45 Q20,55 10,40 Q0,25 10,10Z" fill="var(--blush)" opacity="0.5"/>
+                        <path d="M25,5 Q45,0 55,15 Q65,30 50,40 Q35,50 25,35 Q15,20 25,5Z" fill="var(--peach)" opacity="0.4"/>
+                        <path d="M5,25 Q15,10 30,15 Q45,20 45,35 Q45,50 30,50 Q15,50 5,40 Q-5,30 5,25Z" fill="var(--lavender)" opacity="0.4"/>
+                        <line x1="40" y1="40" x2="70" y2="70" stroke="var(--gold)" stroke-width="0.8"/>
+                        <circle cx="42" cy="42" r="2" fill="var(--gold)" opacity="0.6"/>
+                    </g>
+                </svg>
+            </div>
 
-<!-- PRESS BAR -->
-<div class="press-bar">
-  <div class="press-label">Details</div>
-  <div class="press-items">
-    <div class="press-item">📍 Masjid-e-Khadeem, Jaffarabad, Vaniyambadi</div>
-    <div class="press-item">🕛 Nikah at 12:00 PM</div>
-    <div class="press-item">🍽️ Lunch at V. K. Mahal, after Nikah</div>
-    <div class="press-item">📅 Sunday, 10 May 2026</div>
-  </div>
-</div>
+            <p class="pre-title">Together with their families</p>
 
-<!-- FOOTER -->
-<footer>
-  <span class="footer-mono">M &amp; A — 2026</span>
-  <span>Vaniyambadi, Tamil Nadu</span>
-</footer>
+            <h1 class="couple-names">
+                Mohamed Maaz<br>
+                <span class="heart-icon">♥</span><br>
+                Aiman Iram
+            </h1>
+
+            <p class="tagline">
+                "And of His signs is that He created for you from yourselves mates that you may find tranquillity in them." — Ar-Rum 30:21
+            </p>
+
+            <a href="#invitation" class="cta-button">
+                View Invitation
+                <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </a>
+        </div>
+
+        <div class="scroll-indicator">
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+    </section>
+
+    <!-- Invitation Section -->
+    <section class="invitation" id="invitation">
+        <div class="section-container">
+            <h2 class="section-title">Our Invitation</h2>
+            <div class="section-divider">
+                <div class="divider-line"></div>
+                <div class="divider-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+                </div>
+                <div class="divider-line"></div>
+            </div>
+
+            <div class="invitation-card">
+                <div class="bismillah">﷽</div>
+                <div class="invitation-text">
+                    <p>With the blessings of Allah (SWT) and the love of our families,</p>
+                    <p>We joyfully invite you to celebrate the union of</p>
+                    <span class="highlight">Mohamed Maaz</span>
+                    <p>Son of Hafiz M.IIyas Ahmed</p>
+                    <span class="highlight">&amp;</span>
+                    <span class="highlight">Aiman Iram </span>
+                    <p>Daughter of Janab T.Mukhtar Ahmed</p>
+
+
+                    <p>As they begin their journey together as husband and wife, we humbly request the honour of your presence and your heartfelt prayers on this blessed occasion.</p>
+                    <p>Your presence will fill our hearts with joy and make this celebration truly complete.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="events" id="events">
+        <div class="section-container">
+            <h2 class="section-title">Celebrations</h2>
+            <div class="section-divider">
+                <div class="divider-line"></div>
+                <div class="divider-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402C1 3.759 4.25 1 7.5 1c1.95 0 3.92.99 4.5 2.998C12.58 1.99 14.55 1 16.5 1 19.75 1 23 3.759 23 7.191c0 4.105-5.37 8.863-11 14.402z"/></svg>
+                </div>
+                <div class="divider-line"></div>
+            </div>
+
+            <div class="events-grid">
+                
+                <!-- Nikah -->
+                <div class="event-card" style="transition-delay: 0.15s;">
+                    <div class="event-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <div class="event-name">Nikah</div>
+                    <div class="event-date">Sunday, 10th May 2026</div>
+                    <div class="event-venue">
+                        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                         lunch at VK Mahal after nikah
+                    </div>
+                 
+                    <div class="event-time">🕙Nikah at 12:15 PM (Masjid e qadeem, Jaffarabad)</div>
+                </div>
+
+                <!-- Walima -->
+                <div class="event-card" style="transition-delay: 0.3s;">
+                    <div class="event-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <div class="event-name">Walima</div>
+                    <div class="event-date">Monday, 11th May 2026</div>
+                    <div class="event-venue">
+                        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                        VK Mahal, Jaffarabad
+                    </div>
+                    <div class="event-time">🕖 2:00 AM onwards</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Venue Section -->
+    <section class="venue" id="venue">
+        <div class="section-container">
+            <h2 class="section-title">Venue</h2>
+            <div class="section-divider">
+                <div class="divider-line"></div>
+                <div class="divider-icon">
+                    <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div class="divider-line"></div>
+            </div>
+
+            <div class="venue-content">
+                <div class="venue-name">VK Mahal, Jaffarabad</div>
+                   <div class="venue-location">
+                       <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                     Vaniyambadi
+                 </div>
+                 <a href="https://maps.app.goo.gl/Pg4QDsFLkyfEgdSv6?g_st=aw" target="_blank" class="map-button">📍 Get Directions</a>
+            </div>
+
+            <div class="venue-content">
+                <div class="venue-name">Masjid e qadeem, Jaffarabad</div>
+                   <div class="venue-location">
+                       <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                     Vaniyambadi
+                 </div>
+                 <a href="https://maps.app.goo.gl/zmzdcKMxgVu2cdNw6?g_st=aw" target="_blank" class="map-button">📍 Get Directions</a>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Closing Section -->
+    <section class="closing" id="rsvp">
+        <div class="section-container">
+            <p class="closing-text">
+                We look forward to celebrating this beautiful occasion with you. Your presence, blessings, and prayers mean everything to us. JazakAllah Khair.
+            </p>
+            <a href="tel:+919500294404" class="final-cta">
+                RSVP Now
+                <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.37 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.27a16 16 0 0 0 6.15 6.15l1.41-1.41a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>Mohamed Maaz &amp; Aiman Iram — May Allah bless this union 🤍</p>
+    </footer>
+
+    <script>
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll(
+            '.section-title, .section-divider, .invitation-card, .event-card, .venue-card, .closing-text, .final-cta'
+        ).forEach(el => observer.observe(el));
+    </script>
 
 </body>
 </html>
