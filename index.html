@@ -1,44 +1,718 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YSALI ammar k</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohammed Maaz & Aiman Iram — Nikah Ceremony</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0a0a0a;
+    --pearl: #faf8f5;
+    --gold: #b8976a;
+    --gold-light: #d4b896;
+    --mauve: #7b5ea7;
+    --mauve-light: #a98dd4;
+    --mauve-pale: #f0eaf8;
+    --rule: #e0dbd4;
+    --caption: #7a7670;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--pearl);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── TICKER BAR ── */
+  .ticker {
+    background: var(--ink);
+    color: var(--gold-light);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 9px 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .ticker-inner {
+    display: inline-block;
+    animation: ticker 28s linear infinite;
+  }
+  .ticker-inner span { margin: 0 3rem; }
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* ── NAV ── */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 5vw;
+    border-bottom: 1px solid var(--rule);
+    background: var(--pearl);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+  }
+  .nav-monogram {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--mauve);
+  }
+  .nav-monogram span { color: var(--gold); }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--caption);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--mauve); }
+  .nav-date {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--caption);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 90vh;
+    border-bottom: 1px solid var(--rule);
+  }
+  .hero-left {
+    padding: 6vw 4vw 6vw 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 1px solid var(--rule);
+  }
+  .hero-eyebrow {
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2rem;
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 5.5vw, 6.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin-bottom: 2rem;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--mauve);
+  }
+  .hero-divider {
+    width: 48px;
+    height: 1px;
+    background: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+  .hero-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--caption);
+    max-width: 360px;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+  }
+  .hero-date-block {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+  }
+  .hero-day {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem;
+    font-weight: 300;
+    line-height: 1;
+    color: var(--mauve);
+  }
+  .hero-date-info { display: flex; flex-direction: column; }
+  .hero-month {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .hero-year {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--caption);
+  }
+
+  .hero-right {
+    position: relative;
+    background: var(--mauve-pale);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5vw 4vw;
+    overflow: hidden;
+  }
+  .hero-ornament {
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    border: 1px solid var(--mauve-light);
+    opacity: 0.3;
+  }
+  .hero-ornament-2 {
+    position: absolute;
+    bottom: -80px; left: -80px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    border: 1px solid var(--gold);
+    opacity: 0.2;
+  }
+  .bismillah-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    letter-spacing: 0.06em;
+    color: var(--caption);
+    text-align: center;
+    margin-bottom: 3rem;
+    line-height: 1.9;
+    position: relative;
+    z-index: 1;
+  }
+  .monogram-large {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(5rem, 10vw, 10rem);
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    position: relative;
+    z-index: 1;
+  }
+  .monogram-large .m { color: var(--mauve); }
+  .monogram-large .amp { font-size: 0.45em; color: var(--gold); vertical-align: middle; margin: 0 0.1em; }
+  .monogram-large .a { color: var(--ink); }
+  .hero-location {
+    position: relative;
+    z-index: 1;
+    margin-top: 2.5rem;
+    text-align: center;
+  }
+  .hero-location-label {
+    font-size: 9.5px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+  .hero-location-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--ink);
+  }
+  .hero-location-sub {
+    font-size: 12px;
+    color: var(--caption);
+    letter-spacing: 0.06em;
+    margin-top: 2px;
+  }
+
+  /* ── SECTION UTILITY ── */
+  section { border-bottom: 1px solid var(--rule); }
+  .section-label {
+    font-size: 9.5px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding: 1.8rem 5vw 0;
+    display: block;
+  }
+
+  /* ── FEATURE GRID (families) ── */
+  .families {
+    display: grid;
+    grid-template-columns: 1fr 80px 1fr;
+    padding: 4rem 5vw;
+    gap: 0;
+  }
+  .family-card { padding: 0 3vw; }
+  .family-card:first-child { padding-left: 0; border-right: 1px solid var(--rule); }
+  .family-card:last-child  { padding-right: 0; border-left: 1px solid var(--rule); }
+  .family-side-label {
+    font-size: 9.5px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--caption);
+    margin-bottom: 1.2rem;
+  }
+  .family-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.6rem, 2.5vw, 2.6rem);
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: 0.8rem;
+    font-style: italic;
+    color: var(--mauve);
+  }
+  .family-lineage {
+    font-size: 12.5px;
+    color: var(--caption);
+    line-height: 1.7;
+  }
+  .family-lineage strong { color: var(--ink); font-weight: 500; }
+  .family-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .with-word {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.4rem;
+    color: var(--gold);
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    letter-spacing: 0.1em;
+  }
+
+  /* ── SCHEDULE ── */
+  .schedule {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .schedule-item {
+    padding: 3.5rem 5vw;
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+  .schedule-item:first-child { border-right: 1px solid var(--rule); }
+  .schedule-time-block { flex-shrink: 0; }
+  .schedule-time {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    font-weight: 300;
+    line-height: 1;
+    color: var(--mauve);
+  }
+  .schedule-ampm {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 3px;
+  }
+  .schedule-detail { flex: 1; padding-top: 0.3rem; }
+  .schedule-event-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-style: italic;
+    margin-bottom: 0.5rem;
+  }
+  .schedule-venue {
+    font-size: 12px;
+    color: var(--caption);
+    line-height: 1.6;
+  }
+  .schedule-venue strong { color: var(--mauve); font-weight: 500; }
+
+  /* ── DETAILS STRIP ── */
+  .details-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background: var(--ink);
+    color: var(--pearl);
+  }
+  .detail-cell {
+    padding: 3rem 2.5vw;
+    border-right: 1px solid rgba(255,255,255,0.08);
+  }
+  .detail-cell:last-child { border-right: none; }
+  .detail-label {
+    font-size: 9.5px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+  }
+  .detail-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.4;
+  }
+  .detail-sub {
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    margin-top: 0.3rem;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── BLESSING ── */
+  .blessing {
+    padding: 6rem 5vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .blessing-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.5rem, 2.2vw, 2.2rem);
+    font-weight: 300;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .blessing-quote::before {
+    content: '\201C';
+    font-size: 5rem;
+    line-height: 0;
+    vertical-align: -1.8rem;
+    margin-right: 0.2rem;
+    color: var(--gold);
+    opacity: 0.6;
+  }
+  .blessing-side {}
+  .blessing-dua {
+    font-size: 12.5px;
+    color: var(--caption);
+    line-height: 1.9;
+    border-left: 2px solid var(--mauve-light);
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+  .blessing-compliments {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--caption);
+  }
+  .blessing-compliments strong { color: var(--ink); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.5);
+    padding: 2.5rem 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+  }
+  footer .footer-mono {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    color: rgba(255,255,255,0.15);
+    font-style: italic;
+  }
+  footer a {
+    color: var(--gold-light);
+    text-decoration: none;
+  }
+
+  /* ── PRESS ── */
+  .press-bar {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    border-top: 1px solid var(--rule);
+  }
+  .press-label {
+    padding: 1rem 2vw;
+    font-size: 9.5px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border-right: 1px solid var(--rule);
+    flex-shrink: 0;
+  }
+  .press-items {
+    display: flex;
+    gap: 0;
+    flex: 1;
+    overflow: hidden;
+  }
+  .press-item {
+    padding: 1rem 2.5vw;
+    font-size: 11px;
+    color: var(--caption);
+    border-right: 1px solid var(--rule);
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+  .press-item:last-child { border-right: none; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-left > * { animation: fadeUp 0.8s ease forwards; }
+  .hero-left > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-left > *:nth-child(2) { animation-delay: 0.22s; }
+  .hero-left > *:nth-child(3) { animation-delay: 0.34s; }
+  .hero-left > *:nth-child(4) { animation-delay: 0.46s; }
+  .hero-left > *:nth-child(5) { animation-delay: 0.58s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 14px 4vw; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 8vw 5vw; border-right: none; border-bottom: 1px solid var(--rule); }
+    .hero-right { min-height: 60vw; padding: 8vw 5vw; }
+    .families { grid-template-columns: 1fr; }
+    .family-card:first-child { padding-left: 0; border-right: none; border-bottom: 1px solid var(--rule); padding-bottom: 2rem; }
+    .family-card:last-child  { padding-right: 0; border-left: none; padding-top: 2rem; }
+    .family-divider { padding: 1.5rem 0; writing-mode: horizontal-tb; }
+    .with-word { writing-mode: horizontal-tb; }
+    .schedule { grid-template-columns: 1fr; }
+    .schedule-item:first-child { border-right: none; border-bottom: 1px solid var(--rule); }
+    .details-strip { grid-template-columns: 1fr 1fr; }
+    .detail-cell:nth-child(2) { border-right: none; }
+    .detail-cell:nth-child(3) { border-top: 1px solid rgba(255,255,255,0.08); }
+    .blessing { grid-template-columns: 1fr; gap: 2.5rem; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+    .press-items { overflow-x: auto; }
+  }
+</style>
 </head>
 <body>
-    <header>
-        <h2>Case Study: Governance, Economy, Education and Identity:</h2>
-        <h2>Impact of Religious and Racial Profiling on Regional Development</h2>
-        <p>Vaniyambadi, TN, India</P>
-        <p>Mohammed Ammar khateeb</P>
-        
-    </header>
-    
-    <article class="story">
-        <!-- Replace this with your own image path -->
-        <img src="abcdefg.jpg" alt="Javeed Bhai" class="story-image">
 
-        <div class="profile">
-            
-            <div class="profile-info">
-                <div class="amm"><a href="#">Mohammed Ammar khateeb</a></div>
-                <div>Racial Profiling | Data Engineer | International Affairs |Educator </div>
-                <div class="published">Published Apr 8, 2024</div>
-            </div>
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span>Nikah Ceremony</span>
+    <span>·</span>
+    <span>Mohammed Maaz &amp; Aiman Iram</span>
+    <span>·</span>
+    <span>Sunday, 10 May 2026</span>
+    <span>·</span>
+    <span>Masjid-e-Khadeem, Vaniyambadi</span>
+    <span>·</span>
+    <span>12:00 PM Onwards</span>
+    <span>·</span>
+    <span>22nd Zilqaida 1447 Hijri</span>
+    <span>·</span>
+    <span>Nikah Ceremony</span>
+    <span>·</span>
+    <span>Mohammed Maaz &amp; Aiman Iram</span>
+    <span>·</span>
+    <span>Sunday, 10 May 2026</span>
+    <span>·</span>
+    <span>Masjid-e-Khadeem, Vaniyambadi</span>
+    <span>·</span>
+    <span>12:00 PM Onwards</span>
+    <span>·</span>
+    <span>22nd Zilqaida 1447 Hijri</span>
+    <span>·</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-monogram">M<span>&amp;</span>A</div>
+  <ul class="nav-links">
+    <li><a href="#ceremony">Ceremony</a></li>
+    <li><a href="#families">Families</a></li>
+    <li><a href="#schedule">Schedule</a></li>
+    <li><a href="#venue">Venue</a></li>
+  </ul>
+  <div class="nav-date">10 May 2026</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="ceremony">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Nikah Invitation — 1447 Hijri</p>
+    <h1 class="hero-title">
+      Mohammed<br>
+      <em>Maaz</em><br>
+      &amp; Aiman<br>
+      <em>Iram</em>
+    </h1>
+    <div class="hero-divider"></div>
+    <p class="hero-tagline">
+      In the name of Allah, the most Beneficent,<br>the most Merciful
+    </p>
+    <div class="hero-date-block">
+      <div class="hero-day">10</div>
+      <div class="hero-date-info">
+        <span class="hero-month">May 2026</span>
+        <span class="hero-year">Sunday</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-ornament"></div>
+    <div class="hero-ornament-2"></div>
+    <p class="bismillah-text">
+      In the name of Allah,<br>
+      the most Beneficent,<br>
+      the most Merciful
+    </p>
+    <div class="monogram-large">
+      <span class="m">M</span><span class="amp">&amp;</span><span class="a">A</span>
+    </div>
+    <div class="hero-location">
+      <div class="hero-location-label">Venue</div>
+      <div class="hero-location-name">Masjid-e-Khadeem</div>
+      <div class="hero-location-sub">Jaffarabad, Vaniyambadi</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAMILIES -->
+<section id="families">
+  <span class="section-label">The Families</span>
+  <div class="families">
+    <!-- Groom -->
+    <div class="family-card">
+      <div class="family-side-label">Groom</div>
+      <div class="family-name">J. Mohammed Maaz</div>
+      <div class="family-lineage">
+        Son of <strong>Hafiz M. Ilyas Ahmed</strong><br>
+        Paternal Grand S/o. <strong>Late Janab Mohammed Moosa Sahib</strong><br>
+        Maternal Grand S/o. <strong>Janab Mahmood Shareef Sahib</strong>
+      </div>
+    </div>
+    <!-- Divider -->
+    <div class="family-divider">
+      <span class="with-word">with</span>
+    </div>
+    <!-- Bride -->
+    <div class="family-card">
+      <div class="family-side-label">Bride</div>
+      <div class="family-name">T. Aiman Iram</div>
+      <div class="family-lineage">
+        Daughter of <strong>Janab T. Mukhtar Ahmed Sahib</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section id="schedule">
+  <span class="section-label">Order of the Day</span>
+  <div class="schedule">
+    <div class="schedule-item">
+      <div class="schedule-time-block">
+        <div class="schedule-time">12:00</div>
+        <div class="schedule-ampm">PM onwards</div>
+      </div>
+      <div class="schedule-detail">
+        <div class="schedule-event-name">Nikah Ceremony</div>
+        <div class="schedule-venue">
+          <strong>Masjid-e-Khadeem</strong><br>
+          Jaffarabad, Vaniyambadi<br>
+          22nd Zilqaida 1447 Hijri
         </div>
-        
-        
-        <p>Yesterday, I met Javeed Bhai...</p>
-        <p>He moves around Vaniyambadi on a small, makeshift skateboard He moves around Vaniyambadi on a small, makeshift skateboard, pushing himself forward with his hands. He had polio when he was four, and since then, this has been his only way to get around. He lives near Khaide Millat, close to Kousia Masjid in Talab Kotta, Tirupattur, in a small house that barely holds his family. But he comes to Vaniyambadi almost every day. I asked him why, and he smiled, "Yaan waley bina puche madad karte."</p>
-        <!-- Rest of the content -->
-         <h1>fhdkjddf</h1>
-        <img src="image3.png" alt="Javeed Bhai" class="story-image">
-    </article>
+      </div>
+    </div>
+    <div class="schedule-item">
+      <div class="schedule-time-block">
+        <div class="schedule-time">Post</div>
+        <div class="schedule-ampm">After Nikah</div>
+      </div>
+      <div class="schedule-detail">
+        <div class="schedule-event-name">Walima Lunch</div>
+        <div class="schedule-venue">
+          <strong>V. K. Mahal</strong><br>
+          Jaffarabad, Vaniyambadi<br>
+          Lunch will be served following Nikah
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <footer>
-        <p>If you want to reach out to Javeed Bhai and help in any way, you can contact him at his family's only phone number: 6369352382</p>
-        <p>Hoping we can all play our part. Kuchikar Maaz</p>
-    </footer>
+<!-- DETAILS STRIP -->
+<div class="details-strip" id="venue">
+  <div class="detail-cell">
+    <div class="detail-label">Date</div>
+    <div class="detail-value">Sunday<br>10 May 2026</div>
+    <div class="detail-sub">22nd Zilqaida 1447 Hijri</div>
+  </div>
+  <div class="detail-cell">
+    <div class="detail-label">Nikah Time</div>
+    <div class="detail-value">12:00 PM<br>to 3:00 PM</div>
+    <div class="detail-sub">Insha Allah</div>
+  </div>
+  <div class="detail-cell">
+    <div class="detail-label">Nikah Venue</div>
+    <div class="detail-value">Masjid-e-Khadeem</div>
+    <div class="detail-sub">Jaffarabad, Vaniyambadi</div>
+  </div>
+  <div class="detail-cell">
+    <div class="detail-label">Lunch Venue</div>
+    <div class="detail-value">V. K. Mahal</div>
+    <div class="detail-sub">Jaffarabad, Vaniyambadi</div>
+  </div>
+</div>
+
+<!-- BLESSING -->
+<section class="blessing">
+  <div class="blessing-quote">
+    May Allah bless you, and may He unite both of you in goodness.
+  </div>
+  <div class="blessing-side">
+    <p class="blessing-dua">
+      Hafiz M. Ilyas Ahmed solicits your gracious presence on the occasion of the marriage of his son J. Mohammed Maaz with T. Aiman Iram. Your blessings and prayers are most humbly requested.
+    </p>
+    <p class="blessing-compliments">
+      With the best compliments from<br>
+      <strong>Relatives &amp; Friends</strong>
+    </p>
+  </div>
+</section>
+
+<!-- PRESS BAR -->
+<div class="press-bar">
+  <div class="press-label">Details</div>
+  <div class="press-items">
+    <div class="press-item">📍 Masjid-e-Khadeem, Jaffarabad, Vaniyambadi</div>
+    <div class="press-item">🕛 Nikah at 12:00 PM</div>
+    <div class="press-item">🍽️ Lunch at V. K. Mahal, after Nikah</div>
+    <div class="press-item">📅 Sunday, 10 May 2026</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-mono">M &amp; A — 2026</span>
+  <span>Vaniyambadi, Tamil Nadu</span>
+</footer>
+
 </body>
 </html>
